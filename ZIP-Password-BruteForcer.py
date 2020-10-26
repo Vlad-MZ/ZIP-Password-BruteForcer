@@ -4,7 +4,6 @@
 #
 # ZIP Password BruteForcer
 #   Prototype:
-#       https://github.com/The404Hacking/ZIP-Password-BruteForcer
 #       https://codeby.net/threads/brutim-arxivy-zip-rar-ispolzuja-python.65986/
 #   Example:
 #           ZIP-Password-BruteForcer.py -f OurZIP.zip -d our_dictionary.txt
@@ -25,34 +24,6 @@ import argparse
 import zipfile
 from time import time
 
-
-# def cls():
-#     linux = 'clear'
-#     windows = 'cls'
-#     os.system([linux, windows][os.name == 'nt'])
-#
-#
-# def drawBanner_and_getChoice():
-#     cls()
-#     banner = '\n ###################################\n'
-#     banner += ' # ZIP Password BruteForcer        #\n'
-#     banner += ' ###################################\n'
-#     banner += ' # Coded By Sir.4m1R               #\n'
-#     banner += ' # The404Hacking                   #\n'
-#     banner += ' # Digital Security ReSearch Group #\n'
-#     banner += ' # T.me/The404Hacking              #\n'
-#     banner += ' ###################################\n'
-#     banner += ' GitHub:\n'
-#     banner += ' https://github.com/The404Hacking/ZIP-Password-BruteForcer\n\n'
-#     banner += ' [1] Zip Password Cracker\n'
-#     banner += ' [0] Exit\n'
-#     print(banner)
-#
-#     a = input(" [?] Enter Number : ")
-#     cls()
-#     if a != '1':
-#         print(" [!] Good Bye :)")
-#         return
 
 start_time = None
 
@@ -142,10 +113,6 @@ def crack_with_brute_force(zip_):
     return None
 
 def run(zip_file, dictionary_file):
-    # zipfile_path = input(" [+] ZIP File : ")   # Data/OurZIP_0123.zip - Data/OurZIP_dcba.zip - Data/OurZIP_jordan.zip
-    # print("")
-    # word_list_file = input(" [+] Passwords List File: ")    # Data/passes.txt
-
     if not os.path.exists(zip_file) or not os.path.isfile(zip_file):
         print(" [!] Please check the file's Path. It doesn't seem to be existed.")
         return
@@ -160,12 +127,9 @@ def run(zip_file, dictionary_file):
         print(" [!] Please check ZIP file's Path. It doesn't seem to be a ZIP file.")
         return
 
-
     start_time = time()
     password = None
     with zipfile.ZipFile(zip_file) as zip_:
-    #with open(zipfile_path, 'rb') as f:       # such implementation has no any effect...
-    #   zip_ = zipfile.ZipFile(f)
         while True:
             if dictionary_file is not None:
                 password = crack_on_word_list(zip_, dictionary_file)
